@@ -7,6 +7,7 @@ import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 import PaintingPortfolio from '@/components/PaintingPortfolio';
 import Footer from '@/components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <PaintingPortfolio />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
