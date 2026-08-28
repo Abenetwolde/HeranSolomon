@@ -4,9 +4,10 @@ interface RevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  variant?: 'up' | 'left' | 'right' | 'scale';
 }
 
-export default function Reveal({ children, className = '', delay = 0 }: RevealProps) {
+export default function Reveal({ children, className = '', delay = 0, variant = 'up' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function Reveal({ children, className = '', delay = 0 }: RevealPr
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('is-visible'), delay);
+            entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
           }
         });
@@ -28,7 +29,11 @@ export default function Reveal({ children, className = '', delay = 0 }: RevealPr
   }, [delay]);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div
+      ref={ref}
+      className={`reveal reveal--${variant} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
     </div>
   );

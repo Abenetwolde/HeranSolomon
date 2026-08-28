@@ -1,5 +1,6 @@
 import { GraduationCap } from 'lucide-react';
 import Reveal from './Reveal';
+import TextReveal from './TextReveal';
 import { education } from '@/data';
 
 export default function Education() {
@@ -12,14 +13,14 @@ export default function Education() {
               <GraduationCap size={16} /> Education
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
-              Academic Background
+              <TextReveal text="Academic Background" delay={100} />
             </h2>
           </div>
         </Reveal>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2">
           {education.map((edu, i) => (
-            <Reveal key={edu.degree} delay={i * 120}>
+            <Reveal key={edu.degree} delay={i * 120} variant="scale">
               <div className="group h-full rounded-2xl border border-cream-200 bg-cream-50 p-7 transition-all hover:shadow-xl hover:border-cream-300">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-forest-100 text-forest-700 transition-colors group-hover:bg-forest-700 group-hover:text-cream-50">
                   <GraduationCap size={26} />

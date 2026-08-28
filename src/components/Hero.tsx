@@ -62,7 +62,7 @@ export default function Hero() {
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-6 -left-6 rounded-2xl bg-cream-50 p-5 shadow-xl border border-cream-200 animate-float" style={{ animationDelay: '1.5s' }}>
-              <p className="font-display text-3xl font-bold text-forest-700">1+</p>
+              <p className="font-display text-3xl font-bold text-forest-700">2+</p>
               <p className="text-xs font-medium text-forest-500">Year Experience</p>
             </div>
           </div>

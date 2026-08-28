@@ -15,15 +15,44 @@
 @layer utilities {
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
   }
+  .reveal--up { transform: translateY(32px); }
+  .reveal--left { transform: translateX(-40px); }
+  .reveal--right { transform: translateX(40px); }
+  .reveal--scale { transform: scale(0.94); }
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
+  .text-reveal {
+    display: block;
+  }
+  .text-reveal__word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.7em) rotate(2deg);
+    transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1), transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .text-reveal.is-visible .text-reveal__word {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .text-reveal__word {
+    opacity: 1;
+    transform: none;
   }
 }
 

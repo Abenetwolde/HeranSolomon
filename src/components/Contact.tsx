@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle } from 'lucide-react';
 import Reveal from './Reveal';
+import TextReveal from './TextReveal';
 import { profile } from '@/data';
 
 export default function Contact() {
@@ -25,7 +26,7 @@ export default function Contact() {
               <Mail size={16} /> Get in Touch
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
-              Let's Work Together
+              <TextReveal text="Let's Work Together" delay={100} />
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-forest-600">
               Looking for a dedicated sales and customer service professional? I'd love to hear
@@ -36,7 +37,7 @@ export default function Contact() {
 
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
           {/* Contact info */}
-          <Reveal>
+          <Reveal variant="left">
             <div className="flex h-full flex-col gap-5">
               <a
                 href={`tel:${profile.phone}`}
@@ -77,7 +78,7 @@ export default function Contact() {
           </Reveal>
 
           {/* Form */}
-          <Reveal delay={120}>
+          <Reveal delay={120} variant="right">
             <form
               onSubmit={handleSubmit}
               className="rounded-2xl border border-cream-200 bg-cream-50 p-7 shadow-sm"

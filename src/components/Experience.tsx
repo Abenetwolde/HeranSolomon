@@ -1,5 +1,6 @@
 import { Briefcase, Calendar } from 'lucide-react';
 import Reveal from './Reveal';
+import TextReveal from './TextReveal';
 import { experience } from '@/data';
 
 export default function Experience() {
@@ -12,7 +13,7 @@ export default function Experience() {
               <Briefcase size={16} /> Work Experience
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
-              Professional Journey
+              <TextReveal text="Professional Journey" delay={100} />
             </h2>
           </div>
         </Reveal>
@@ -22,7 +23,7 @@ export default function Experience() {
           <div className="absolute left-4 top-2 h-full w-px bg-cream-300 md:left-1/2 md:-translate-x-px" />
 
           {experience.map((job, i) => (
-            <Reveal key={job.role} delay={i * 120}>
+            <Reveal key={job.role} delay={i * 120} variant={i % 2 === 0 ? 'left' : 'right'}>
               <div
                 className={`relative mb-12 flex gap-6 md:gap-0 ${
                   i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'

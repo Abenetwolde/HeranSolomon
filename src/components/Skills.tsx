@@ -1,5 +1,6 @@
 import { Wrench, Heart, Monitor, Languages as LangIcon } from 'lucide-react';
 import Reveal from './Reveal';
+import TextReveal from './TextReveal';
 import { skills, languages } from '@/data';
 
 const sections = [
@@ -18,14 +19,14 @@ export default function Skills() {
               <Wrench size={16} /> Skills &amp; Expertise
             </span>
             <h2 className="mt-4 font-display text-4xl font-semibold text-forest-900 sm:text-5xl">
-              What I Bring to the Table
+              <TextReveal text="What I Bring to the Table" delay={100} />
             </h2>
           </div>
         </Reveal>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {sections.map((section, i) => (
-            <Reveal key={section.title} delay={i * 120}>
+            <Reveal key={section.title} delay={i * 120} variant="scale">
               <div className="h-full rounded-2xl border border-cream-200 bg-cream-50 p-7 transition-all hover:shadow-xl hover:border-cream-300">
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-forest-100 text-forest-700">

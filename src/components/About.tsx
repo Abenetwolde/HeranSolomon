@@ -1,12 +1,13 @@
 import { Sparkles } from 'lucide-react';
 import Reveal from './Reveal';
+import TextReveal from './TextReveal';
 import { profile } from '@/data';
 
 export default function About() {
   return (
     <section id="about" className="py-24 lg:py-32">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-5">
-        <Reveal className="lg:col-span-2">
+        <Reveal className="lg:col-span-2" variant="left">
           <div className="relative">
             <div className="absolute -inset-3 rounded-3xl bg-forest-100" />
             <div className="relative overflow-hidden rounded-3xl shadow-xl">
@@ -20,12 +21,12 @@ export default function About() {
           </div>
         </Reveal>
 
-        <Reveal className="lg:col-span-3" delay={100}>
+        <Reveal className="lg:col-span-3" delay={100} variant="right">
           <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-cream-600">
             <Sparkles size={16} /> About Me
           </span>
           <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-forest-900 sm:text-5xl text-balance">
-            Dedicated to outstanding customer experiences
+            <TextReveal text="Dedicated to outstanding customer experiences" delay={120} />
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-forest-600">
             {profile.objective}
@@ -37,7 +38,7 @@ export default function About() {
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { value: '2', label: 'Roles Held' },
-              { value: '1.5+', label: 'Years Experience' },
+              { value: '2+', label: 'Years Experience' },
               { value: 'Zero', label: 'Register Discrepancies' },
               { value: '2', label: 'Languages' },
             ].map((stat) => (
